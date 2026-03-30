@@ -747,9 +747,12 @@
                 flex-direction: column;
                 align-items: center;
             }
-            .hero-title { font-size: clamp(2rem, 9vw, 3rem); }
+            .hero-title { font-size: clamp(2rem, 9vw, 3rem); font-weight: 900; 
+             text-shadow: 0 2px 15px rgba(0,0,0,0.2); }
+             
             .hero-desc  { font-size: 1rem; }
-            .hero-cta   { font-size: 1rem; padding: 14px 28px; }
+            .hero-label { display: none; }
+            .hero-cta   { display: none; }
             .hero-right-panel { flex: none; width: 100%; text-align: left; }
 
             /* 배너: 세로 정렬 */
@@ -806,18 +809,18 @@
 <body style="">
     <header class="site-header">
         <div class="site-header-inner">
-            <a href="file:///C:/Users/chambit_halim/AppData/Roaming/Claude/local-agent-mode-sessions/b4a1700c-d915-4539-a866-8f856aa54495/92bbd3a8-6614-4426-af2d-5bf80050a616/local_d6167a13-0288-4de9-8904-596d5fb48a5d/outputs/booktest3.html#" class="header-logo">
+            <a href="#" class="header-logo">
                 <span class="header-logo-tag">CHAMBIT</span>
                 <span class="header-logo-text"><strong>BOOK</strong><span class="logo-light">CLUBS</span></span>
             </a>
             <nav class="header-nav">
-                <a href="file:///C:/Users/chambit_halim/AppData/Roaming/Claude/local-agent-mode-sessions/b4a1700c-d915-4539-a866-8f856aa54495/92bbd3a8-6614-4426-af2d-5bf80050a616/local_d6167a13-0288-4de9-8904-596d5fb48a5d/outputs/booktest3.html#">참빛북클럽</a>
-                <a href="file:///C:/Users/chambit_halim/AppData/Roaming/Claude/local-agent-mode-sessions/b4a1700c-d915-4539-a866-8f856aa54495/92bbd3a8-6614-4426-af2d-5bf80050a616/local_d6167a13-0288-4de9-8904-596d5fb48a5d/outputs/booktest3.html#">이용안내</a>
-                <a href="file:///C:/Users/chambit_halim/AppData/Roaming/Claude/local-agent-mode-sessions/b4a1700c-d915-4539-a866-8f856aa54495/92bbd3a8-6614-4426-af2d-5bf80050a616/local_d6167a13-0288-4de9-8904-596d5fb48a5d/outputs/booktest3.html#">새소식</a>
-                <a href="file:///C:/Users/chambit_halim/AppData/Roaming/Claude/local-agent-mode-sessions/b4a1700c-d915-4539-a866-8f856aa54495/92bbd3a8-6614-4426-af2d-5bf80050a616/local_d6167a13-0288-4de9-8904-596d5fb48a5d/outputs/booktest3.html#" class="nav-free">2주 무료체험</a>
-                <a href="file:///C:/Users/chambit_halim/AppData/Roaming/Claude/local-agent-mode-sessions/b4a1700c-d915-4539-a866-8f856aa54495/92bbd3a8-6614-4426-af2d-5bf80050a616/local_d6167a13-0288-4de9-8904-596d5fb48a5d/outputs/booktest3.html#">내 메뉴</a>
+                <a href="#">참빛북클럽</a>
+                <a href="#">이용안내</a>
+                <a href="#">새소식</a>
+                <a href="#" class="nav-free">2주 무료체험</a>
+                <a href="#">내 메뉴</a>
             </nav>
-            <a href="file:///C:/Users/chambit_halim/AppData/Roaming/Claude/local-agent-mode-sessions/b4a1700c-d915-4539-a866-8f856aa54495/92bbd3a8-6614-4426-af2d-5bf80050a616/local_d6167a13-0288-4de9-8904-596d5fb48a5d/outputs/booktest3.html#" class="header-cta">
+            <a href="#" class="header-cta">
                 <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
                     <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
@@ -1248,16 +1251,16 @@
         <div class="footer-top">
             <div class="footer-top-inner">
                 <div class="footer-top-links">
-                    <a href="file:///C:/Users/chambit_halim/AppData/Roaming/Claude/local-agent-mode-sessions/b4a1700c-d915-4539-a866-8f856aa54495/92bbd3a8-6614-4426-af2d-5bf80050a616/local_d6167a13-0288-4de9-8904-596d5fb48a5d/outputs/booktest3.html#">회사소개</a>
-                    <a href="file:///C:/Users/chambit_halim/AppData/Roaming/Claude/local-agent-mode-sessions/b4a1700c-d915-4539-a866-8f856aa54495/92bbd3a8-6614-4426-af2d-5bf80050a616/local_d6167a13-0288-4de9-8904-596d5fb48a5d/outputs/booktest3.html#" class="footer-link-bold">개인정보처리방침</a>
-                    <a href="file:///C:/Users/chambit_halim/AppData/Roaming/Claude/local-agent-mode-sessions/b4a1700c-d915-4539-a866-8f856aa54495/92bbd3a8-6614-4426-af2d-5bf80050a616/local_d6167a13-0288-4de9-8904-596d5fb48a5d/outputs/booktest3.html#">이용약관</a>
+                    <a href="#">회사소개</a>
+                    <a href="#" class="footer-link-bold">개인정보처리방침</a>
+                    <a href="#">이용약관</a>
                 </div>
                 <div class="footer-social">
-                    <a href="file:///C:/Users/chambit_halim/AppData/Roaming/Claude/local-agent-mode-sessions/b4a1700c-d915-4539-a866-8f856aa54495/92bbd3a8-6614-4426-af2d-5bf80050a616/local_d6167a13-0288-4de9-8904-596d5fb48a5d/outputs/booktest3.html#" class="sns-insta" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><circle cx="12" cy="12" r="4"></circle><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
-                    <a href="file:///C:/Users/chambit_halim/AppData/Roaming/Claude/local-agent-mode-sessions/b4a1700c-d915-4539-a866-8f856aa54495/92bbd3a8-6614-4426-af2d-5bf80050a616/local_d6167a13-0288-4de9-8904-596d5fb48a5d/outputs/booktest3.html#" class="sns-facebook" title="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
-                    <a href="file:///C:/Users/chambit_halim/AppData/Roaming/Claude/local-agent-mode-sessions/b4a1700c-d915-4539-a866-8f856aa54495/92bbd3a8-6614-4426-af2d-5bf80050a616/local_d6167a13-0288-4de9-8904-596d5fb48a5d/outputs/booktest3.html#" class="sns-blog" title="Blog"><span style="font-size:10px;font-weight:900;color:#fff;">blog</span></a>
-                    <a href="file:///C:/Users/chambit_halim/AppData/Roaming/Claude/local-agent-mode-sessions/b4a1700c-d915-4539-a866-8f856aa54495/92bbd3a8-6614-4426-af2d-5bf80050a616/local_d6167a13-0288-4de9-8904-596d5fb48a5d/outputs/booktest3.html#" class="sns-line" title="Line"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.494.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"></path></svg></a>
-                    <a href="file:///C:/Users/chambit_halim/AppData/Roaming/Claude/local-agent-mode-sessions/b4a1700c-d915-4539-a866-8f856aa54495/92bbd3a8-6614-4426-af2d-5bf80050a616/local_d6167a13-0288-4de9-8904-596d5fb48a5d/outputs/booktest3.html#" class="sns-kakao" title="KakaoTalk"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.477 3 2 6.477 2 10.8c0 2.7 1.608 5.076 4.05 6.516L5.1 20.4l3.75-2.4c1.008.204 2.052.3 3.15.3 5.523 0 10-3.477 10-7.8S17.523 3 12 3z"></path></svg></a>
+                    <a href="#" class="sns-insta" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><circle cx="12" cy="12" r="4"></circle><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                    <a href="#" class="sns-facebook" title="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                    <a href="#" class="sns-blog" title="Blog"><span style="font-size:10px;font-weight:900;color:#fff;">blog</span></a>
+                    <a href="#" class="sns-line" title="Line"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.494.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"></path></svg></a>
+                    <a href="#" class="sns-kakao" title="KakaoTalk"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.477 3 2 6.477 2 10.8c0 2.7 1.608 5.076 4.05 6.516L5.1 20.4l3.75-2.4c1.008.204 2.052.3 3.15.3 5.523 0 10-3.477 10-7.8S17.523 3 12 3z"></path></svg></a>
                 </div>
             </div>
         </div>
