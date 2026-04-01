@@ -1,0 +1,1384 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>참빛북클럽 Brand Story</title>
+    <style>
+        /* ===== CSS 변수 ===== */
+        :root {
+            --brand-blue: #3182F6;
+            --brand-blue-hover: #1b6ef3;
+        }
+
+        /* ===== 기본 초기화 ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+        }
+
+        body {
+            background-color: #c8783a;
+            color: #2A2520;
+            overflow-x: hidden;
+            padding-top: 72px;
+            letter-spacing: -0.015em; 
+            -webkit-font-smoothing: antialiased; 
+        }
+
+        /* ===========================
+            헤더 
+        =========================== */
+        .site-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9999;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(12px); 
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+            height: 72px;
+            display: flex;
+            align-items: center;
+        }
+
+        .site-header-inner {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-decoration: none;
+            line-height: 1;
+            gap: 3px;
+        }
+        .header-logo-tag {
+            background: #E5302A;
+            color: #fff;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            padding: 3px 6px;
+            border-radius: 2px 8px 8px 2px; 
+            display: inline-block;
+        }
+        .header-logo-text {
+            font-size: 23px;
+            font-weight: 900;
+            color: #1a1a1a;
+            letter-spacing: -0.03em;
+        }
+        .header-logo-text .logo-light { font-weight: 400; }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 36px;
+        }
+
+        .header-nav {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+        .header-nav a {
+            text-decoration: none;
+            color: #1a1a1a;
+            font-size: 15px;
+            font-weight: 600;
+            transition: color 0.15s;
+            white-space: nowrap;
+        }
+        .header-nav a:hover { color: #E5302A; }
+        .header-nav a.nav-free { color: #1a1a1a; font-weight: 700; } 
+
+        .header-cta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 22px;
+            border: 1.5px solid #E5302A;
+            border-radius: 50px; 
+            background: #ffffff;
+            color: #1a1a1a;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+        .header-cta:hover { background: #E5302A; color: #fff; }
+        .header-cta svg { width: 16px; height: 16px; stroke: currentColor; }
+
+        /* ===========================
+            히어로 섹션
+        =========================== */
+        .hero {
+            width: 100%;
+            min-height: calc(100vh - 72px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background-image: url('hero-bg.jpg');
+            background-size: cover;
+            background-position: 47.6196% 52.0654%;
+            background-repeat: no-repeat;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                108deg,
+                rgba(200, 80, 0, 0.62) 0%,
+                rgba(230, 120, 0, 0.42) 32%,
+                rgba(255, 170, 30, 0.22) 56%,
+                rgba(255, 200, 60, 0.08) 72%,
+                transparent 85%
+            );
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        #leafCanvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .hero-inner {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center; 
+            gap: clamp(40px, 6vw, 80px); 
+            width: 100%;
+            max-width: 1200px; 
+            padding: 60px 32px;
+            box-sizing: border-box;
+            position: relative;
+            z-index: 3;
+        }
+
+        /* ===========================
+            1. 화이트 박스 패널 (데스크톱: 왼쪽)
+        =========================== */
+        .hero-box-panel {
+            flex: 1;
+            min-width: 320px;
+            max-width: 460px; 
+            order: 1; 
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            z-index: 2;
+        }
+
+        .onboard-card {
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-radius: 28px;
+            padding: 48px 36px; 
+            box-shadow: 0 24px 48px rgba(0,0,0,0.08), inset 0 2px 0 rgba(255,255,255,1);
+            border: none; 
+            transition: transform 0.3s ease;
+            text-align: left; 
+        }
+        .onboard-card:hover {
+            transform: translateY(-2px); 
+        }
+
+        .onboard-card-title {
+            font-size: 15px;
+            font-weight: 600; 
+            color: #E65A00; 
+            letter-spacing: 0.15em;
+            margin-bottom: 22px;
+            text-align: left; 
+        }
+
+        .step-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px; 
+            padding-left: 20px; 
+        }
+        .step-item {
+            display: flex;
+            align-items: flex-start; 
+            gap: 18px;
+            text-align: left; 
+        }
+        .step-num {
+            width: 36px; 
+            height: 36px;
+            min-width: 36px;
+            flex-shrink: 0; 
+            border-radius: 50%;
+            background: #FFF0E6; 
+            color: #FF6B00; 
+            font-size: 14px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 2px; 
+        }
+        .step-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .step-text strong {
+            display: block;
+            font-size: 18px; 
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            color: #191f28; 
+            margin-bottom: 4px; 
+            line-height: 1.3;
+        }
+        .step-text span {
+            display: block;
+            font-size: 15px;
+            color: #6b7684; 
+            line-height: 1.5;
+            word-break: keep-all;
+        }
+
+        .trust-stat-row {
+            display: flex;
+            gap: 12px;
+        }
+        .trust-stat-card {
+            flex: 1;
+            min-width: 0;
+            background: rgba(255,255,255,0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-radius: 20px;
+            padding: 16px 12px; 
+            text-align: center;
+            border: none;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.06), inset 0 2px 0 rgba(255,255,255,0.8);
+            transition: transform 0.3s ease;
+        }
+        .trust-stat-card:hover { transform: translateY(-2px); }
+        
+        .trust-stat-num {
+            display: block;
+            font-size: 20px; 
+            font-weight: 800;
+            color: #FF6B00;
+            line-height: 1.2;
+            letter-spacing: -0.04em; 
+            white-space: nowrap; 
+            word-break: keep-all;
+        }
+        .trust-stat-label {
+            display: block;
+            font-size: 14px;
+            color: #4e5968;
+            font-weight: 600;
+            margin-top: 6px; 
+            white-space: nowrap;
+        }
+
+        /* ===========================
+            2. 텍스트 영역 (데스크톱: 오른쪽 고정)
+        =========================== */
+        .hero-text-block {
+            flex: 1;
+            min-width: 320px;
+            max-width: 540px; 
+            order: 2; 
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            z-index: 2;
+        }
+
+        .hero-label {
+            display: inline-block;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            color: #fff;
+            background: rgba(255,107,0,0.2); 
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            padding: 10px 22px;
+            border-radius: 50px; 
+            margin-bottom: 24px;
+            box-shadow: 0 4px 16px rgba(255,107,0,0.2);
+        }
+
+        .hero-title {
+            display: block;
+            font-size: clamp(48px, 5vw, 64px); 
+            font-weight: 800;
+            color: #ffffff;
+            line-height: 1.25;
+            letter-spacing: -0.03em; 
+            margin-bottom: 20px;
+            text-shadow: 0 4px 24px rgba(180,60,0,0.4); 
+            word-break: keep-all;
+        }
+
+        .hero-desc {
+            display: block;
+            font-size: clamp(17px, 1.5vw, 20px);
+            color: rgba(17, 17, 17, 0.8); 
+            line-height: 1.6;
+            font-weight: 600; 
+            margin-bottom: 44px;
+            word-break: keep-all;
+            text-shadow: 0 0 10px rgba(255,255,255,0.3); 
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            justify-content: center; 
+            align-items: center;
+            gap: 12px;
+            background: #FF6B00;
+            color: #ffffff;
+            font-size: 18px; 
+            font-weight: 700;
+            letter-spacing: -0.01em;
+            padding: 20px 44px;
+            border-radius: 50px; 
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 0 8px 24px rgba(255,107,0,0.3), inset 0 1px 0 rgba(255,255,255,0.2);
+            cursor: pointer;
+            border: none;
+        }
+        .hero-cta:hover {
+            background: #E55800;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(255,107,0,0.4), inset 0 1px 0 rgba(255,255,255,0.2);
+        }
+        .hero-cta svg {
+            width: 22px;
+            height: 22px;
+            transition: transform 0.3s ease;
+        }
+        .hero-cta:hover svg { transform: translateX(5px); }
+
+        /* ===========================
+            플로팅 배너
+        =========================== */
+        .floating-banner {
+            position: fixed;
+            bottom: 0; left: 0; width: 100%;
+            background: rgba(255,255,255,0.95);
+            backdrop-filter: blur(24px);
+            border-top: 1px solid rgba(0,0,0,0.05);
+            padding: 20px 0;
+            z-index: 1000;
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.08);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+        .floating-banner.banner-hidden { opacity: 0; pointer-events: none; transform: translateY(100%); }
+
+        .banner-container {
+            max-width: 1200px; margin: 0 auto; padding: 0 32px; 
+            display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap;
+        }
+        .banner-text { color: #191f28; font-size: 16px; line-height: 1.6; letter-spacing: -0.01em; font-weight: 500; }
+        .banner-btn {
+            background-color: #FF6B00; color: white; border: none;
+            padding: 16px 32px; font-size: 16px; font-weight: 700;
+            border-radius: 50px; 
+            cursor: pointer; transition: all 0.2s ease;
+            white-space: nowrap; box-shadow: 0 4px 16px rgba(255,107,0,0.3);
+        }
+        .banner-btn:hover { background-color: #E55800; transform: translateY(-2px); }
+
+        /* ===========================
+            오리지널 사용 가이드 100% 복구
+        =========================== */
+        .guide-tooltip { 
+            position: fixed; 
+            bottom: 118px; 
+            right: 110px; 
+            background: var(--brand-blue); 
+            color: white; 
+            padding: 8px 16px; 
+            border-radius: 20px; 
+            font-size: 13px; 
+            font-weight: 600; 
+            z-index: 1001; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2); 
+            animation: bounce 2s infinite; 
+        }
+        @keyframes bounce { 
+            0%, 20%, 50%, 80%, 100% { transform: translateX(0); } 
+            40% { transform: translateX(-10px); } 
+            60% { transform: translateX(-5px); } 
+        }
+        
+        .guide-floating-btn { 
+            position: fixed; 
+            bottom: 108px; 
+            right: 30px; 
+            width: 70px; 
+            height: 70px; 
+            background-color: #ffffff; 
+            border-radius: 16px; 
+            box-shadow: 0 8px 24px rgba(0,0,0,0.15); 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            cursor: pointer; 
+            z-index: 1001; 
+            transition: all 0.3s ease; 
+            text-decoration: none; 
+            border: 2px solid var(--brand-blue); 
+        }
+        .guide-floating-btn:hover { 
+            transform: scale(1.05); 
+            background-color: var(--brand-blue); 
+        }
+        .guide-floating-btn .emoji { 
+            font-size: 26px; 
+            margin-bottom: 2px; 
+        }
+        .guide-floating-btn .text { 
+            font-size: 11px; 
+            font-weight: 800; 
+            color: #1e293b; 
+        }
+        .guide-floating-btn:hover .text { color: #fff; }
+
+        /* ===========================
+            모달 팝업 & 폼 양식
+        =========================== */
+        .modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); 
+            display: flex; justify-content: center; align-items: center;
+            z-index: 10000; opacity: 0; visibility: hidden; transition: 0.3s;
+            backdrop-filter: blur(4px); padding: 20px;
+        }
+        .modal-overlay.active { opacity: 1; visibility: visible; }
+
+        .modal-content {
+            background-color: #ffffff; width: 100%; max-width: 480px; 
+            max-height: 90vh; border-radius: 24px; padding: 40px; 
+            position: relative; overflow-y: auto; transform: translateY(20px); transition: transform 0.3s ease;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+        }
+        .modal-overlay.active .modal-content { transform: translateY(0); }
+
+        .modal-close { position: absolute; top: 20px; right: 24px; background: none; border: none; color: #b0b8c1; font-size: 28px; cursor: pointer; line-height: 1; transition: color 0.2s; }
+        .modal-close:hover { color: #191f28; }
+
+        .modal-title { font-size: 24px; font-weight: 800; margin-bottom: 8px; color: #191f28; letter-spacing: -0.03em; }
+        .modal-subtitle { font-size: 15px; color: #6b7684; margin-bottom: 32px; line-height: 1.5; word-break: keep-all; } 
+
+        .form-section-title { font-size: 15px; color: #191f28; font-weight: 700; margin: 32px 0 16px; }
+        
+        .form-group { margin-bottom: 24px; }
+        .form-label { display: block; font-size: 14px; color: #4e5968; margin-bottom: 8px; font-weight: 600; }
+        .form-label-hint { font-size: 13px; color: #8b95a1; font-weight: 400; margin-left: 4px; }
+
+        .form-input {
+            width: 100%; background-color: #f2f4f6; border: 1px solid transparent;
+            color: #191f28; padding: 0 16px; border-radius: 12px;
+            font-size: 15px; box-sizing: border-box; transition: all 0.2s;
+            height: 52px;
+        }
+        .form-input::placeholder { color: #b0b8c1; font-size: 15px; }
+        .form-input:focus { outline: none; background-color: #fff; border-color: var(--brand-blue); box-shadow: 0 0 0 3px rgba(49,130,246,0.1); }
+
+        .input-row { display: flex; gap: 10px; flex-wrap: wrap; }
+        .input-row .form-input { flex: 1; min-width: 0; }
+
+        .input-with-timer {
+            position: relative;
+            flex: 1;
+            min-width: 0;
+            display: flex;
+            align-items: center;
+        }
+        .input-with-timer .form-input {
+            padding-right: 50px; 
+        }
+        .input-with-timer .verify-timer {
+            position: absolute;
+            right: 16px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #f04452;
+            pointer-events: none;
+        }
+
+        .verify-btn, .verify-confirm-btn {
+            height: 52px;
+            width: 100px;
+            flex-shrink: 0;
+            border-radius: 12px; font-size: 14px; font-weight: 600; 
+            cursor: pointer; transition: all 0.15s;
+            display: flex; align-items: center; justify-content: center;
+        }
+        .verify-btn { background: #e8f3ff; color: var(--brand-blue); border: none; }
+        .verify-btn:hover { background: #d3e8ff; }
+        .verify-btn.sent { background: var(--brand-blue); color: #fff; }
+        .verify-confirm-btn { background: #333d4b; color: #fff; border: none; }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-6px); }
+            40%, 80% { transform: translateX(6px); }
+        }
+        .input-error {
+            border-color: #f04452 !important;
+            background-color: #fff0f1 !important;
+            animation: shake 0.4s ease;
+        }
+        .agree-error {
+            color: #f04452 !important;
+            animation: shake 0.4s ease;
+        }
+
+        input[type="checkbox"] {
+            accent-color: var(--brand-blue);
+            cursor: pointer;
+            width: 18px; height: 18px;
+        }
+
+        .verify-code-row { display: none; margin-top: 10px; }
+        .verify-code-row.visible { display: flex; gap: 10px; }
+
+        .verify-status {
+            margin-top: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            display: none;
+        }
+        .verify-status.success { color: #3182f6; display: block; }
+        .verify-status.error   { color: #f04452; display: block; }
+
+        .info-box { background: #f9f9f9; padding: 16px; border-radius: 12px; margin-top: 16px; font-size: 14px; color: #4e5968; line-height: 1.6; font-weight: 500; display: flex; gap: 8px; }
+        .info-box::before { content: '💡'; }
+        
+        .agreement-group { border: 1px solid rgba(0,0,0,0.06); border-radius: 12px; padding: 16px 20px; margin-top: 16px; background: #fff; }
+        .agreement-item { display: flex; align-items: center; gap: 10px; margin-top: 14px; font-size: 14px; color: #4e5968; cursor: pointer; transition: color 0.2s; }
+        .agreement-item.all { font-weight: 700; color: #191f28; margin-top: 0; font-size: 15px; }
+        .agreement-badge { font-size: 11px; font-weight: 700; padding: 3px 6px; border-radius: 4px; margin-right: 4px; }
+        .badge-required { background: #e8f3ff; color: var(--brand-blue); }
+        .badge-optional { background: #f2f4f6; color: #8b95a1; }
+        .agreement-view { margin-left: auto; font-size: 13px; color: #8b95a1; text-decoration: underline; cursor: pointer; white-space: nowrap; }
+
+        .submit-btn {
+            width: 100%; background-color: var(--brand-blue); color: white; border: none;
+            padding: 18px; font-size: 16px; font-weight: 700; border-radius: 14px;
+            cursor: pointer; margin-top: 32px; transition: background 0.2s;
+        }
+        .submit-btn:hover { background-color: var(--brand-blue-hover); transform: translateY(-1px); }
+
+        .form-guide { font-size: 13px; color: #8b95a1; margin-top: 8px; line-height: 1.5; display: flex; gap: 6px; align-items: flex-start; }
+        .form-guide::before { content: '·'; font-weight: bold; }
+        .form-guide-url { color: var(--brand-blue); font-weight: 600; }
+
+        /* ===========================
+            결제 진행 섹션 (STEP 3)
+        =========================== */
+        #paymentSection { display: none; }
+        .payment-check-list { list-style: none; padding: 0; margin: 20px 0 32px; display: flex; flex-direction: column; gap: 16px; }
+        .payment-check-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; color: #333d4b; line-height: 1.6; }
+        .payment-check-list li .check-icon { width: 22px; height: 22px; min-width: 22px; border-radius: 50%; background: #e8f3ff; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+        .payment-check-list li .check-icon svg { width: 12px; height: 12px; stroke: var(--brand-blue); stroke-width: 2.5; }
+        .payment-check-list li em { font-style: normal; color: var(--brand-blue); font-weight: 700; }
+        
+        .payment-divider { border: none; border-top: 1px solid rgba(0,0,0,0.06); margin: 24px 0; }
+        
+        .referral-row { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+        .referral-label { font-size: 14px; font-weight: 600; color: #333d4b; white-space: nowrap; flex-shrink: 0; }
+        
+        .payment-agree-row { display: flex; align-items: center; justify-content: space-between; padding: 20px; background: #f9f9f9; border-radius: 12px; margin-bottom: 32px; font-size: 15px; }
+        .payment-agree-check { display: flex; align-items: center; gap: 10px; font-weight: 600; color: #191f28; cursor: pointer; }
+        
+        .payment-btn-row { display: flex; gap: 12px; }
+        .btn-prev { flex: 1; padding: 18px; border: none; border-radius: 14px; background: #f2f4f6; color: #4e5968; font-size: 16px; font-weight: 700; cursor: pointer; transition: all 0.15s; }
+        .btn-prev:hover { background: #e8eaed; }
+        .btn-card-register { flex: 2; padding: 18px; border: none; border-radius: 14px; background: var(--brand-blue); color: #fff; font-size: 16px; font-weight: 700; cursor: pointer; transition: background 0.15s; }
+        .btn-card-register:hover { background: var(--brand-blue-hover); }
+        
+        .payment-notice-box { background: #f9f9f9; border-radius: 12px; padding: 20px; margin-top: 24px; font-size: 13px; color: #8b95a1; line-height: 1.6; }
+
+        /* ===========================
+            사이트 푸터 (오리지널 다크 테마)
+        =========================== */
+        .site-footer { width: 100%; background: #222222; color: #aaaaaa; }
+        .footer-top { background: #1a1a1a; border-bottom: 1px solid #333; padding: 16px 0; }
+        .footer-top-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+        .footer-top-links { display: flex; align-items: center; flex-wrap: wrap; gap: 0; }
+        .footer-top-links a { text-decoration: none; color: #bbbbbb; font-size: 14px; font-weight: 400; padding: 0 20px; border-right: 1px solid #444; line-height: 1; }
+        .footer-top-links a:first-child { padding-left: 0; }
+        .footer-top-links a:last-child { border-right: none; }
+        .footer-top-links a.footer-link-bold { font-weight: 700; color: #ffffff; }
+        .footer-social { display: flex; gap: 10px; }
+        .footer-social a { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; text-decoration: none; font-size: 16px; transition: opacity 0.15s; overflow: hidden; color: white;}
+        .footer-social a:hover { opacity: 0.85; }
+        .footer-social .sns-insta { background: #E1306C; color: #fff; }
+        .footer-social .sns-facebook { background: #1877F2; color: #fff; }
+        .footer-social .sns-blog { background: #03C75A; color: #fff; font-size: 12px; font-weight: 800; }
+        .footer-social .sns-line { background: #06C755; color: #fff; }
+        .footer-social .sns-kakao { background: #FEE500; color: #3A1D1D; }
+        .footer-body { padding: 40px 0; } 
+        .footer-body-inner { max-width: 1200px; margin: 0 auto; padding: 0 32px; display: flex; align-items: flex-start; gap: 48px; flex-wrap: wrap; }
+        .footer-logo { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; flex-shrink: 0; margin-top: 2px; }
+        .footer-logo-tag { background: #555; color: #ccc; font-size: 9px; font-weight: 800; letter-spacing: 0.05em; padding: 3px 6px; border-radius: 3px; display: inline-block; }
+        .footer-logo-text { font-size: 22px; font-weight: 900; color: #ffffff; letter-spacing: -0.02em; }
+        .footer-logo-text .logo-light { font-weight: 400; }
+        .footer-info { flex: 1; min-width: 240px; }
+        .footer-info p { font-size: 13px; line-height: 1.8; color: #999999; margin-bottom: 4px; }
+        .footer-info .footer-copyright { margin-top: 16px; font-size: 12px; color: #666; }
+
+        /* ===========================
+            반응형 - 모바일 최적화 
+        =========================== */
+        @media (max-width: 900px) {
+            .site-header-inner { padding: 0 24px; }
+            .header-nav { gap: 24px; }
+            .header-nav a { font-size: 14px; }
+            .hero-inner { padding: 40px 24px; }
+        }
+
+        @media (max-width: 768px) {
+            .header-nav { display: none; }
+            .floating-banner { display: none; }
+
+            .hero-inner {
+                flex-direction: column;
+                align-items: center; 
+                justify-content: center; 
+                gap: 40px;
+                padding: 40px 24px;
+            }
+            
+            .hero-text-block { 
+                order: 1; 
+                width: 100%; 
+                max-width: 100%;
+                display: flex; 
+                flex-direction: column; 
+                align-items: center; 
+                text-align: center;
+            }
+            
+            .hero-box-panel { 
+                order: 2; 
+                width: 100%; 
+                max-width: 480px; 
+                flex: none; 
+            }
+            
+            .onboard-card {
+                text-align: left;
+                padding: 40px 28px;
+            }
+            
+            /* 모바일: 5px 이동 적용 */
+            .step-list {
+                padding-left: 5px; 
+                gap: 28px; 
+            }
+            
+            .step-item {
+                align-items: flex-start;
+                text-align: left;
+            }
+            .step-text {
+                align-items: flex-start;
+                text-align: left;
+            }
+
+            /* ===== 모바일 타이포 개선 ===== */
+            .hero-title { 
+                font-size: clamp(38px, 10.5vw, 56px);
+                line-height: 1.2; 
+                letter-spacing: -0.04em;
+                font-weight: 900;
+                margin-bottom: 18px;
+                text-shadow: 0 2px 15px rgba(0,0,0,0.2);
+                text-align: center;
+                width: 100%;
+            }
+            .hero-desc { 
+                font-size: clamp(18px, 4.8vw, 20px);
+                line-height: 1.65;
+                font-weight: 500;
+                margin-bottom: 28px; 
+                text-align: center;
+                width: 100%;
+            }
+            
+            /* 💥 2주 무료체험 라벨 모바일에서 완전 삭제 (우선순위 강제) */
+            .hero-label { display: none !important; }
+            
+            .hero-cta { 
+                display: flex; 
+                width: 100%; 
+                max-width: 480px; 
+                margin: 0 auto; 
+                padding: 18px 24px;
+            }
+
+            .trust-stat-row { gap: 8px; }
+            .trust-stat-card { padding: 16px 8px; border-radius: 16px; }
+            .trust-stat-num { font-size: 16px; } 
+            .trust-stat-label { font-size: 13px; }
+
+            /* 💥 모바일에서 오리지널 가이드 툴팁/버튼 수평 배치 완벽 복구 */
+            .guide-floating-btn { 
+                top: 84px; 
+                right: 16px; 
+                bottom: auto; 
+                width: 60px;
+                height: 60px;
+                padding: 0;
+            }
+            .guide-floating-btn .emoji { font-size: 22px; margin-bottom: 2px; display: block; }
+            .guide-floating-btn .text { font-size: 10px; display: block; margin-top: 0; }
+            
+            .guide-tooltip { 
+                top: 98px;
+                right: 88px;
+                bottom: auto; 
+                font-size: 12px; 
+                padding: 6px 12px;
+            }
+
+            .modal-content { padding: 32px 24px; border-radius: 20px; }
+            .modal-overlay { padding: 16px; }
+            .modal-title { font-size: 22px; }
+
+            .form-input { font-size: 16px; }
+
+            .footer-top-inner { flex-direction: column; align-items: flex-start; padding: 0 24px; }
+            .footer-body-inner { flex-direction: column; gap: 32px; padding: 0 24px; }
+        }
+
+        @media (max-width: 480px) {
+            .header-logo-text { font-size: 18px; }
+            .header-cta { padding: 8px 16px; font-size: 13px; }
+            
+            .hero-title { font-size: clamp(34px, 11vw, 44px); }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <div class="site-header-inner">
+            <a href="#" class="header-logo">
+                <span class="header-logo-tag">CHAMBIT</span>
+                <span class="header-logo-text"><strong>BOOK</strong><span class="logo-light">CLUBS</span></span>
+            </a>
+            <div class="header-right">
+                <nav class="header-nav">
+                    <a href="#">참빛북클럽</a>
+                    <a href="#">이용안내</a>
+                    <a href="#">새소식</a>
+                    <a href="#" class="nav-free">2주 무료체험</a>
+                    <a href="#">내 메뉴</a>
+                </nav>
+                <a href="#" class="header-cta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+                    </svg>
+                    북클럽 들어가기
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" style="background-position: 74% 62%;">
+        <canvas id="leafCanvas" width="485" height="881"></canvas>
+        <div class="hero-inner">
+            
+            <div class="hero-box-panel">
+                <div class="onboard-card">
+                    <p class="onboard-card-title">&nbsp; &nbsp; 가입 후 바로 이용 가능</p>
+                    <div class="step-list">
+                        <div class="step-item">
+                            <div class="step-num">1</div>
+                            <div class="step-text">
+                                <strong>2분이면 가입 완료</strong>
+                                <span>이메일·학원 정보만 입력하면 끝</span>
+                            </div>
+                      </div>
+                        <div class="step-item">
+                            <div class="step-num">2</div>
+                            <div class="step-text">
+                                <strong>설치 없이 즉시 사용</strong>
+                                <span>브라우저에서 바로 전 기능 이용</span>
+                            </div>
+                        </div>
+                        <div class="step-item">
+                            <div class="step-num">3</div>
+                            <div class="step-text">
+                                <strong>2주 후 자유롭게 결정</strong>
+                                <span>부담 없이, 언제든 취소 가능</span>
+                            </div>
+                        </div>
+                  </div>
+              </div>
+                <div class="trust-stat-row">
+                    <div class="trust-stat-card">
+                        <span class="trust-stat-num">가맹비</span>
+                        <span class="trust-stat-label">없음</span>
+                    </div>
+                    <div class="trust-stat-card">
+                        <span class="trust-stat-num">약정 기간</span>
+                        <span class="trust-stat-label">없음</span>
+                    </div>
+                    <div class="trust-stat-card">
+                        <span class="trust-stat-num">해지 위약금</span>
+                        <span class="trust-stat-label">없음</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-text-block">
+                <span class="hero-label">2주 무료체험</span>
+                <h1 class="hero-title">지금 바로<br>시작할 수 있습니다</h1>
+                <p class="hero-desc">참빛북클럽의 모든 기능을 2주 동안<br>제한 없이 경험하세요.</p>
+                <button class="hero-cta" id="heroCtaBtn">
+                    무료체험 시작하기
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </button>
+            </div>
+            
+        </div>
+    </section>
+
+    <div class="floating-banner">
+        <div class="banner-container">
+            <p class="banner-text">운영은 더 단순하게, 학습 효과는 더 선명하게!<br>지금 <strong>2주 무료체험</strong>을 시작해보세요.</p>
+            <button class="banner-btn" id="openModalBtn">2주 무료체험 신청</button>
+        </div>
+    </div>
+
+    <div class="guide-tooltip">사용법이 궁금하신가요? 👉🏻</div>
+    <a href="https://www.notion.so/c008b1e8d89e82f99dbb813b72a04183?source=copy_link" target="_blank" class="guide-floating-btn">
+        <span class="emoji">📚</span>
+        <span class="text">사용 가이드</span>
+    </a>
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModalBtn">×</button>
+
+            <div id="formSection">
+                <h2 class="modal-title">무료체험 신청</h2>
+                <p class="modal-subtitle">정보를 입력하고 2주 무료체험을 시작해보세요.</p>
+                <form id="experienceForm" novalidate>
+                    <div class="form-section-title">가입 정보</div>
+                    <div class="form-group"><label class="form-label">원장님 성함</label><input type="text" class="form-input" placeholder="이름을 입력해주세요" required=""></div>
+                    <div class="form-group">
+                        <label class="form-label">휴대폰 번호</label>
+                        <div class="input-row">
+                            <input type="tel" id="phoneInput" class="form-input" placeholder="'-' 없이 숫자만 입력" maxlength="11" required="">
+                            <button type="button" class="verify-btn" id="sendCodeBtn">인증번호 발송</button>
+                        </div>
+                        <div class="verify-code-row" id="verifyCodeRow">
+                            <div class="input-with-timer">
+                                <input type="text" id="codeInput" class="form-input" placeholder="인증번호 6자리 입력" maxlength="6">
+                                <span class="verify-timer" id="verifyTimer">3:00</span>
+                            </div>
+                            <button type="button" class="verify-confirm-btn" id="confirmCodeBtn">확인</button>
+                        </div>
+                        <p class="verify-status" id="verifyStatus"></p>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">이메일 주소 <span class="form-label-hint">(아이디로 사용됩니다)</span></label>
+                        <input type="email" class="form-input" placeholder="이메일을 입력해주세요" required="">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">학원명 (교육기관명)</label>
+                        <input type="text" class="form-input" placeholder="학원 또는 교육기관명을 입력해주세요" required="">
+                        <p class="form-guide">정식 교육기관 명으로 이용됩니다. 반드시 정확한 교육기관(등록증)명을 기재해 주세요.</p>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">학원 기관 코드</label>
+                        <input type="text" class="form-input" placeholder="기관 코드를 입력해주세요" required="">
+                        <p class="form-guide">(임의의 4자 이상의 영어 소문자로 기관 고유 코드를 생성해 주세요.)</p>
+                        <p class="form-guide"><span class="form-guide-url">[기관코드]</span>는 로그인 시 필요합니다. 잊지 말아 주세요!</p>
+                    </div>
+
+                    <div class="form-section-title">약관 동의</div>
+                    <div class="agreement-group">
+                        <label class="agreement-item all"><input type="checkbox" id="agreeAll"><span>전체 동의</span></label>
+                        <hr style="border:none; border-top:1px solid rgba(0,0,0,0.06); margin: 12px 0;">
+                        <label class="agreement-item"><input type="checkbox" class="agree-item" required=""><span><span class="agreement-badge badge-required">필수</span>서비스 이용약관 동의</span><span class="agreement-view">보기</span></label>
+                        <label class="agreement-item"><input type="checkbox" class="agree-item" required=""><span><span class="agreement-badge badge-required">필수</span>개인정보 수집 및 이용 동의</span><span class="agreement-view">보기</span></label>
+                        <label class="agreement-item"><input type="checkbox" class="agree-item"><span><span class="agreement-badge badge-optional">선택</span>마케팅 정보 수신 동의</span><span class="agreement-view">보기</span></label>
+                    </div>
+
+                    <div class="info-box">카드 등록 없이, 오늘부터 2주 동안 무료로 사용하실 수 있습니다.</div>
+                    <button type="submit" class="submit-btn">무료체험 시작하기</button>
+                </form>
+            </div>
+
+            <div id="paymentSection">
+                <h2 class="modal-title">결제 진행</h2>
+
+                <ul class="payment-check-list">
+                    <li>
+                        <span class="check-icon">
+                            <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="2,6 5,9 10,3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </span>
+                        <span>자동결제 카드를 등록한 후, 오늘부터 <em>2주 동안 서비스를 무료</em>로 사용합니다.</span>
+                    </li>
+                    <li>
+                        <span class="check-icon">
+                            <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="2,6 5,9 10,3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </span>
+                        <span>무료체험이 종료되는 <em>2026년 4월 13일부터 월 150,000원 자동결제가 시작</em>됩니다.</span>
+                    </li>
+                    <li>
+                        <span class="check-icon">
+                            <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><polyline points="2,6 5,9 10,3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </span>
+                        <span>무료기간 동안 언제든지 자동결제를 취소할 수 있습니다.</span>
+                    </li>
+                </ul>
+
+                <hr class="payment-divider">
+
+                <div class="referral-row">
+                    <span class="referral-label">추천 기관 코드 입력</span>
+                    <input type="text" class="form-input" id="referralCode" placeholder="추천코드" style="flex:1;">
+                </div>
+
+                <hr class="payment-divider">
+
+                <div class="payment-agree-row">
+                    <label class="payment-agree-check">
+                        <input type="checkbox" id="paymentAgree">
+                        참빛북클럽 정기 결제 약관에 동의합니다.
+                    </label>
+                    <a href="https://new.bookclubs.co.kr/pages/terms/pay" target="_blank" class="payment-agree-view">약관보기</a>
+                </div>
+
+                <div class="payment-btn-row">
+                    <button class="btn-prev" id="paymentPrevBtn">이전</button>
+                    <button class="btn-card-register" id="cardRegisterBtn">카드등록</button>
+                </div>
+
+                <div class="payment-notice-box">
+                    매월 실사용 도중 중도 해지시 남은 기간에 대한 금액은 환불되지 않습니다.<br>
+                    한국 외 국가에서는 서비스 이용이 제한되며, 사전 안내없이 서비스가 중단될 수 있습니다.<br>
+                    PC사양 혹은 인터넷 환경에 따라 사이트 이용에 문제가 발생할 수 있습니다.<br>
+                    본 서비스는 기존 브라우저에 최적화되어 있습니다.<br>
+                    기타 오류 현상 발생시 문의전화: 070-7547-8969(고객지원팀) / 평일 오전 10시 ~ 오후 6시
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const openModalBtn = document.getElementById('openModalBtn');
+        const closeModalBtn = document.getElementById('closeModalBtn');
+        const modalOverlay = document.getElementById('modalOverlay');
+        const form = document.getElementById('experienceForm');
+        const formSection = document.getElementById('formSection');
+        
+        openModalBtn.onclick = () => { modalOverlay.classList.add('active'); document.body.style.overflow = 'hidden'; };
+
+        /* ===== 휴대폰 인증 ===== */
+        const phoneInput      = document.getElementById('phoneInput');
+        const sendCodeBtn     = document.getElementById('sendCodeBtn');
+        const verifyCodeRow   = document.getElementById('verifyCodeRow');
+        const codeInput       = document.getElementById('codeInput');
+        const verifyTimer     = document.getElementById('verifyTimer');
+        const confirmCodeBtn  = document.getElementById('confirmCodeBtn');
+        const verifyStatus    = document.getElementById('verifyStatus');
+
+        let timerInterval = null;
+        let phoneVerified = false;
+        let generatedCode = '';
+
+        function startTimer(seconds) {
+            clearInterval(timerInterval);
+            let remain = seconds;
+            timerInterval = setInterval(() => {
+                remain--;
+                const m = String(Math.floor(remain / 60)).padStart(1, '0');
+                const s = String(remain % 60).padStart(2, '0');
+                verifyTimer.textContent = m + ':' + s;
+                if (remain <= 0) {
+                    clearInterval(timerInterval);
+                    verifyTimer.textContent = '0:00';
+                    verifyStatus.className = 'verify-status error';
+                    verifyStatus.textContent = '인증 시간이 만료되었습니다. 다시 발송해주세요.';
+                    codeInput.disabled = true;
+                    confirmCodeBtn.disabled = true;
+                }
+            }, 1000);
+        }
+
+        sendCodeBtn.addEventListener('click', () => {
+            const phone = phoneInput.value.replace(/\D/g, '');
+            if (phone.length < 10 || phone.length > 11) {
+                verifyStatus.className = 'verify-status error';
+                verifyStatus.textContent = '올바른 휴대폰 번호를 입력해주세요.';
+                verifyStatus.style.display = 'block';
+                phoneInput.classList.add('input-error');
+                setTimeout(() => phoneInput.classList.remove('input-error'), 400);
+                return;
+            }
+            generatedCode = String(Math.floor(100000 + Math.random() * 900000));
+            console.log('[개발용] 인증번호:', generatedCode); 
+
+            phoneInput.disabled = true;
+            sendCodeBtn.textContent = '재발송';
+            sendCodeBtn.classList.add('sent');
+            codeInput.disabled = false;
+            confirmCodeBtn.disabled = false;
+            phoneVerified = false;
+
+            verifyCodeRow.classList.add('visible');
+            verifyStatus.className = 'verify-status success';
+            verifyStatus.textContent = '인증번호가 발송되었습니다. (3분 내 입력)';
+            verifyStatus.style.display = 'block';
+            codeInput.value = '';
+            startTimer(180);
+        });
+
+        confirmCodeBtn.addEventListener('click', () => {
+            if (codeInput.value.trim().length > 0) {
+                clearInterval(timerInterval);
+                phoneVerified = true;
+                phoneInput.disabled = false;
+                codeInput.disabled = true;
+                confirmCodeBtn.disabled = true;
+                sendCodeBtn.disabled = true;
+                verifyTimer.textContent = '';
+                verifyStatus.className = 'verify-status success';
+                verifyStatus.textContent = '✓ 인증이 완료되었습니다.';
+            } else {
+                verifyStatus.className = 'verify-status error';
+                verifyStatus.textContent = '인증번호를 입력해주세요.';
+                codeInput.classList.add('input-error');
+                setTimeout(() => codeInput.classList.remove('input-error'), 400);
+            }
+        });
+
+        const heroCtaBtn = document.getElementById('heroCtaBtn');
+        closeModalBtn.onclick = () => { modalOverlay.classList.remove('active'); document.body.style.overflow = ''; };
+
+        const agreeAll = document.getElementById('agreeAll');
+        const agreeItems = document.querySelectorAll('.agree-item');
+        if (agreeAll) {
+            agreeAll.addEventListener('change', () => {
+                agreeItems.forEach(item => item.checked = agreeAll.checked);
+            });
+            agreeItems.forEach(item => {
+                item.addEventListener('change', () => {
+                    agreeAll.checked = [...agreeItems].every(i => i.checked);
+                });
+            });
+        }
+
+        const paymentSection = document.getElementById('paymentSection');
+        const paymentPrevBtn = document.getElementById('paymentPrevBtn');
+        const cardRegisterBtn = document.getElementById('cardRegisterBtn');
+
+        function openModal() {
+            modalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            formSection.style.display = '';
+            paymentSection.style.display = 'none';
+        }
+        openModalBtn.onclick = openModal;
+        if (heroCtaBtn) heroCtaBtn.onclick = openModal;
+
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let hasError = false;
+
+            const requiredInputs = form.querySelectorAll('input[required]');
+            requiredInputs.forEach(input => {
+                if (input.type === 'checkbox') {
+                    if (!input.checked) {
+                        const agreeItem = input.closest('.agreement-item');
+                        agreeItem.classList.add('agree-error');
+                        setTimeout(() => agreeItem.classList.remove('agree-error'), 400);
+                        hasError = true;
+                    }
+                } else {
+                    if (!input.value.trim()) {
+                        input.classList.add('input-error');
+                        setTimeout(() => input.classList.remove('input-error'), 400);
+                        hasError = true;
+                    }
+                }
+            });
+
+            if (hasError) return;
+
+            if (!phoneVerified) {
+                verifyStatus.className = 'verify-status error';
+                verifyStatus.textContent = '휴대폰 번호 인증을 완료해주세요.';
+                verifyStatus.style.display = 'block';
+                phoneInput.classList.add('input-error');
+                setTimeout(() => phoneInput.classList.remove('input-error'), 400);
+                return;
+            }
+
+            formSection.style.display = 'none';
+            paymentSection.style.display = 'block';
+            document.querySelector('.modal-content').scrollTop = 0;
+        });
+
+        if (paymentPrevBtn) {
+            paymentPrevBtn.onclick = () => {
+                paymentSection.style.display = 'none';
+                formSection.style.display = '';
+                document.querySelector('.modal-content').scrollTop = 0;
+            };
+        }
+
+        if (cardRegisterBtn) {
+            cardRegisterBtn.onclick = () => {
+                const agree = document.getElementById('paymentAgree');
+                if (!agree.checked) {
+                    alert('참빛북클럽 정기 결제 약관에 동의해주세요.');
+                    return;
+                }
+                alert('카드등록 PG 연동 예정');
+            };
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            var footer = document.querySelector('.site-footer');
+            var banner = document.querySelector('.floating-banner');
+            if (!footer || !banner) return;
+            var obs = new IntersectionObserver(function(entries) {
+                entries.forEach(function(entry) {
+                    if (entry.isIntersecting) {
+                        banner.classList.add('banner-hidden');
+                    } else {
+                        banner.classList.remove('banner-hidden');
+                    }
+                });
+            }, { threshold: 0.1 });
+            obs.observe(footer);
+        });
+    </script>
+
+    <script>
+    (function() {
+        const canvas = document.getElementById('leafCanvas');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+
+        function resize() {
+            canvas.width  = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+        }
+        resize();
+        window.addEventListener('resize', resize);
+
+        const COLORS = [
+            'rgba(255,180,30,', 'rgba(255,140,20,', 'rgba(255,220,80,',
+            'rgba(255,200,50,', 'rgba(255,160,40,', 'rgba(255,240,140,', 'rgba(255,255,210,'
+        ];
+
+        class Leaf {
+            constructor() { this.init(true); }
+            init(fromTop = false) {
+                const w = canvas.width, h = canvas.height;
+                this.x       = Math.random() * (w + 200) - 100;
+                this.y       = fromTop ? -(Math.random() * h * 0.6) : -20;
+                this.size    = Math.random() * 11 + 5;
+                this.vx      = (Math.random() - 0.4) * 1.2;
+                this.vy      = Math.random() * 1.2 + 0.5;
+                this.rot     = Math.random() * Math.PI * 2;
+                this.rotV    = (Math.random() - 0.5) * 0.04;
+                this.wobble  = Math.random() * Math.PI * 2;
+                this.wobbleS = Math.random() * 0.025 + 0.008;
+                this.swing   = Math.random() * 0.9 + 0.3;
+                this.alpha   = Math.random() * 0.55 + 0.25;
+                this.color   = COLORS[Math.floor(Math.random() * COLORS.length)];
+                this.type    = Math.floor(Math.random() * 3);
+            }
+            update() {
+                this.wobble += this.wobbleS;
+                this.x += this.vx + Math.sin(this.wobble) * this.swing;
+                this.y += this.vy;
+                this.rot += this.rotV + Math.sin(this.wobble * 0.5) * 0.01;
+                if (this.y > canvas.height + 30 || this.x < -150 || this.x > canvas.width + 150) {
+                    this.init(false);
+                }
+            }
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.rot);
+                ctx.globalAlpha = this.alpha;
+                ctx.fillStyle = this.color + '1)';
+                const s = this.size;
+                ctx.beginPath();
+                if (this.type === 0) { ctx.ellipse(0, 0, s * 0.45, s, 0, 0, Math.PI * 2); }
+                else if (this.type === 1) {
+                    ctx.moveTo(0, -s);
+                    ctx.bezierCurveTo( s*0.7, -s*0.4,  s*0.8,  s*0.3, 0,  s);
+                    ctx.bezierCurveTo(-s*0.8,  s*0.3, -s*0.7, -s*0.4, 0, -s);
+                } else { ctx.ellipse(0, 0, s * 0.5, s * 0.8, Math.PI * 0.2, 0, Math.PI * 2); }
+                ctx.fill();
+                if (this.type === 1) {
+                    ctx.beginPath();
+                    ctx.strokeStyle = 'rgba(0,60,0,0.12)';
+                    ctx.lineWidth = 0.6;
+                    ctx.moveTo(0, -s * 0.85); ctx.lineTo(0,  s * 0.85);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(0, -s * 0.2); ctx.lineTo( s * 0.4, s * 0.1);
+                    ctx.moveTo(0, -s * 0.2); ctx.lineTo(-s * 0.4, s * 0.1);
+                    ctx.stroke();
+                }
+                ctx.restore();
+            }
+        }
+
+        class SparkParticle {
+            constructor() { this.reset(); }
+            reset() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height * 0.6;
+                this.r = Math.random() * 2.5 + 0.8;
+                this.alpha = 0;
+                this.maxA = Math.random() * 0.45 + 0.15;
+                this.life = 0;
+                this.maxLife = Math.random() * 140 + 80;
+            }
+            update() {
+                this.life++;
+                const t = this.life / this.maxLife;
+                this.alpha = t < 0.3 ? (t / 0.3) * this.maxA : t < 0.7 ? this.maxA : ((1 - t) / 0.3) * this.maxA;
+                if (this.life >= this.maxLife) this.reset();
+            }
+            draw() {
+                ctx.save();
+                ctx.globalAlpha = this.alpha;
+                const grad = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.r * 3);
+                grad.addColorStop(0, 'rgba(255,255,200,1)'); grad.addColorStop(1, 'rgba(255,255,200,0)');
+                ctx.fillStyle = grad;
+                ctx.beginPath(); ctx.arc(this.x, this.y, this.r * 3, 0, Math.PI * 2); ctx.fill();
+                ctx.restore();
+            }
+        }
+
+        const LEAF_COUNT = 38, SPARK_COUNT = 22;
+        const leaves = Array.from({length: LEAF_COUNT}, () => new Leaf());
+        const sparks = Array.from({length: SPARK_COUNT}, () => new SparkParticle());
+        sparks.forEach(s => { s.life = Math.floor(Math.random() * s.maxLife); });
+
+        let windTime = 0, windForce = 0;
+        let mouseX = 0.5, mouseY = 0.5;
+        const hero = document.querySelector('.hero');
+
+        hero.addEventListener('mousemove', (e) => {
+            const rect = hero.getBoundingClientRect();
+            mouseX = (e.clientX - rect.left) / rect.width;
+            mouseY = (e.clientY - rect.top)  / rect.height;
+        });
+        hero.addEventListener('mouseleave', () => { mouseX = 0.5; mouseY = 0.5; });
+
+        const isMobile = () => window.innerWidth <= 768;
+        const mobileBgX = 74, mobileBgY = 62;
+        let currentBgX = isMobile() ? mobileBgX : 50;
+        let currentBgY = isMobile() ? mobileBgY : 50;
+        let targetBgX = currentBgX, targetBgY = currentBgY;
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            windTime += 0.008;
+            windForce = Math.sin(windTime) * 0.4 + Math.sin(windTime * 2.3) * 0.2;
+            leaves.forEach(l => { l.vx += windForce * 0.02; l.vx *= 0.98; });
+
+            if (isMobile()) {
+                currentBgX += (mobileBgX - currentBgX) * 0.04;
+                currentBgY += (mobileBgY - currentBgY) * 0.04;
+            } else {
+                targetBgX = 50 + (mouseX - 0.5) * -12;
+                targetBgY = 50 + (mouseY - 0.5) * -8;
+                currentBgX += (targetBgX - currentBgX) * 0.04;
+                currentBgY += (targetBgY - currentBgY) * 0.04;
+            }
+            hero.style.backgroundPosition = `${currentBgX}% ${currentBgY}%`;
+
+            sparks.forEach(s => { s.update(); s.draw(); });
+            leaves.forEach(l => { l.update(); l.draw(); });
+            requestAnimationFrame(animate);
+        }
+        animate();
+    })();
+    </script>
+
+    <footer class="site-footer">
+        <div class="footer-top">
+            <div class="footer-top-inner">
+                <div class="footer-top-links">
+                    <a href="#">회사소개</a>
+                    <a href="#" class="footer-link-bold">개인정보처리방침</a>
+                    <a href="#">이용약관</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#" class="sns-insta" title="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><circle cx="12" cy="12" r="4"></circle><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
+                    <a href="#" class="sns-facebook" title="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
+                    <a href="#" class="sns-blog" title="Blog"><span style="font-size:10px;font-weight:900;color:#fff;">blog</span></a>
+                    <a href="#" class="sns-line" title="Line"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.630 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.494.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.630 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"></path></svg></a>
+                    <a href="#" class="sns-kakao" title="KakaoTalk"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.477 3 2 6.477 2 10.8c0 2.7 1.608 5.076 4.05 6.516L5.1 20.4l3.75-2.4c1.008.204 2.052.3 3.15.3 5.523 0 10-3.477 10-7.8S17.523 3 12 3z"></path></svg></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-body">
+            <div class="footer-body-inner">
+                <div class="footer-logo">
+                    <span class="footer-logo-tag">CHAMBIT</span>
+                    <span class="footer-logo-text"><strong>BOOK</strong><span class="logo-light">CLUBS</span></span>
+                </div>
+                <div class="footer-info">
+                    <p>고객센터: 070-7547-8969 &nbsp;|&nbsp; FAX: 0303-0106-1060 &nbsp;/&nbsp; 평일(공휴일제외) 오전10시-오후6시(점심시간 12-1시)</p>
+                    <p>대표이사 : 김병화 &nbsp;|&nbsp; 상호명 : (주)참빛교육 &nbsp;|&nbsp; 사업자등록번호 : 128-86-30878 &nbsp;|&nbsp; 통신판매업신고: 제 2008-경기고양-7986호 &nbsp;|&nbsp; 개인정보관리책임자: 김병화</p>
+                    <p>주소: 경기도 고양시 일산동구 태극로 60 빛마루 16층 1604호 우)10393</p>
+                    <p class="footer-copyright">© 2020 Chambit Education, All rights reserved.<br>
+                    <span style="font-size:11px;">Profile avatar image made by Freepik from www.flaticon.com</span></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
